@@ -6,5 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Brewe.Create(name: 'A cote',country:'France', address:'56 impasse des gabillons' )
-Style.Create(name:'brune', info:'info')
+Beer.destroy_all
+Style.destroy_all
+Brewery.destroy_all
+
+@brewery = Brewery.create(name: 'A cote',country:'France', address:'yabillons' )
+Brewery.create(name: 'A cottre',country:'France', address:'yillons' )
+@style = Style.create(name:'brune', info:'info')
+Style.create(name:'tre', info:'info')
+Beer.create(name:"beer1", price:1, rating:4, desc:"desc", brewery: @brewery, style: @style)

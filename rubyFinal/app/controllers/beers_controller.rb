@@ -1,4 +1,4 @@
-class BeerController < ApplicationController
+class BeersController < ApplicationController
     before_action :set_beer, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -6,17 +6,17 @@ class BeerController < ApplicationController
     end
     
     def new
-        @brewery = Brewery.find(params[:brewery_id])
-        @style = Style.find(params[:style_id])
+        @breweries = Brewery.all
+        @styles = Style.all
         @beer = Beer.new
     end
     
     def create
         @beer = Beer.new(beer_params)
-        @brewery = Brewery.find(params[:brewery_id])
-        @style = Style.find(params[:style_id])
-        @beer.brewery = @brewery
-        @beer.style = @style
+        @beerbrewery = Brewery.find(params[:permission_form][:brewery_id])
+        @beer.brewery = @beerbrewery
+        @beerstyle = Style.find(params[:permission_form][:style_id])
+        @beer.style= @beerstyle
         @beer.save
         redirect_to beer_path(@beer)
     end
@@ -34,16 +34,16 @@ class BeerController < ApplicationController
     
     def destroy
         @beer.destroy
-        redirect_to beers_path
+        redirect_to beer_index_path
     end
 
     private
 
-    def set_ber
+    def set_beer
       @beer = Beer.find(params[:id])
     end
   
     def beer_params
-      params.require(:beer).permit(:name, :rating, :price, :brewery, :style, :desc)
+      params.require(:beer).permit(:name, :rating, :price, :desc, :brewery, :style)
     end
 end

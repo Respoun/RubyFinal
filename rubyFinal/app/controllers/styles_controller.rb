@@ -1,4 +1,4 @@
-class StyleController < ApplicationController
+class StylesController < ApplicationController
     def new
         @style = Style.new
       end
