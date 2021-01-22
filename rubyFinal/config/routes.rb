@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :beer do 
-    resources :brewery, only[:new, :create]
-    resources :style, only[:new, :create]
+    resources :brewery, only: [:new, :create]
+    resources :style, only: [:new, :create]
   end
 end
