@@ -34,7 +34,7 @@ class BeersController < ApplicationController
     
     def destroy
         @beer.destroy
-        redirect_to beer_index_path
+        redirect_to beers_path
     end
 
     private
