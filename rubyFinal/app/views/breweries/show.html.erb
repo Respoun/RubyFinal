@@ -1,10 +1,11 @@
 
-<h1><%= @brewery.name %></h1>
-<h1><%= @brewery.user_id %></h1>
+<h1>id:<%= @brewery.id %></h1>
+<h1>Nom: <%= @brewery.name %></h1>
+<h1>Pays:<%= @brewery.country %></h1>
+
 
 <%= link_to "Supprimer #{@brewery.name}", brewery_path(@brewery), method: :delete %>
 
 <% if (policy(@brewery).edit?) %>
     <%= link_to "Update #{@brewery.name}", edit_brewery_path(@brewery) %>
 <% end %>
-

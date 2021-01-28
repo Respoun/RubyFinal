@@ -1,0 +1,11 @@
+<h1>Edit <%= @beer.name%> Beer</h1>
+
+<%= simple_form_for @beer do |b| %>
+    <%= b.input :name %>
+    <%= b.input :rating %>
+    <%= b.input :price %>
+    <%= b.select :brewery_id, @breweries.map { |br| [br.name, br.id] }, include_blank: true %>
+    <%= b.select :style_id, @styles.map { |s| [s.name, s.id] }, include_blank: true %>
+    <%= b.input :desc %>
+    <%= b.submit %>
+  <% end %>
