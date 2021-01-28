@@ -1,6 +1,6 @@
 
-<h1><%= @style.name %></h1>
-
+<h1>Nom: <%= @style.name %></h1>
+<h1>Info: <%= @style.info %></h1>
 <%= link_to "Supprimer #{@style.name}", style_path(@style), method: :delete %>
 
 <% if (policy(@style).edit?) %>

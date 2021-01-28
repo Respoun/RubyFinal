@@ -4,7 +4,7 @@ class BeerPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def show?
     true
   end
@@ -23,9 +23,12 @@ class BeerPolicy < ApplicationPolicy
 
   def edit?
     true
-  end 
-  def update
+  end
+  def update?
     edit?
   end
-  
+  def destroy?
+    edit?
+  end
+
 end

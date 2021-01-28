@@ -4,8 +4,8 @@
     <%= b.input :name %>
     <%= b.input :rating %>
     <%= b.input :price %>
-    <%= b.select :brewery, @breweries.map { |br| [br.name, br.id] }, include_blank: true %>
-    <%= b.select :style, @styles.map { |s| [s.name, s.id] }, include_blank: true %>
+    <%= b.select :brewery_id, @breweries.map { |br| [br.name, br.id] }, include_blank: true %>
+    <%= b.select :style_id, @styles.map { |s| [s.name, s.id] }, include_blank: true %>
     <%= b.input :desc %>
     <%= b.submit %>
   <% end %>
