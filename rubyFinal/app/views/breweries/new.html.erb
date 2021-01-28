@@ -1,6 +1,8 @@
-<%= simple_form_for [@brewery] do |b| %>
+<h1>New Brewery</h1>
+
+<%= simple_form_for @brewery do |b| %>
     <%= b.input :name %>
-    <%= b.input :country %>
+    <%= b.input :country, as: :text  %>
     <%= b.input :address %>
     <%= b.submit %>
   <% end %>

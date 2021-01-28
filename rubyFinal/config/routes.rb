@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
 
-  resources :beers do 
-    resources :brewerys, only: [:new, :create]
-    resources :styles, only: [:new, :create]
-  end
+  resources :breweries, only: [:new, :create, :index, :show, :destroy]
+  resources :styles, only: [:new, :create, :index, :show, :destroy]
+  resources :beers 
 end
