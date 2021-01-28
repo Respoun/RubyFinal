@@ -3,3 +3,6 @@
 
 <%= link_to "Supprimer #{@style.name}", style_path(@style), method: :delete %>
 
+<% if (policy(@style).edit?) %>
+    <%= link_to "Update #{@style.name}", edit_style_path(@style) %>
+<% end %>

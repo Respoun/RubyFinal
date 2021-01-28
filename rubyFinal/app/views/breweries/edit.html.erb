@@ -1,0 +1,8 @@
+<h1>Edit Brewery</h1>
+
+<%= simple_form_for @brewery do |b| %>
+    <%= b.input :name %>
+    <%= b.input :country, as: :text  %>
+    <%= b.input :address %>
+    <%= b.submit %>
+  <% end %>

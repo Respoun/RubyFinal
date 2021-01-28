@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_090849) do
+ActiveRecord::Schema.define(version: 2021_01_28_052252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2021_01_27_090849) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_breweries_on_user_id"
   end
 
   create_table "styles", force: :cascade do |t|
@@ -42,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_01_27_090849) do
     t.string "info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_styles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +62,6 @@ ActiveRecord::Schema.define(version: 2021_01_27_090849) do
 
   add_foreign_key "beers", "breweries"
   add_foreign_key "beers", "styles"
+  add_foreign_key "breweries", "users"
+  add_foreign_key "styles", "users"
 end

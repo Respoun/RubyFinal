@@ -2,20 +2,22 @@ class BeersController < ApplicationController
     before_action :set_beer, only: [:show, :edit, :update, :destroy]
 
     def index
-        @beers = Beer.all
+        @beers = policy_scope(Beer)
     end
     
     def new
         @breweries = Brewery.all
         @styles = Style.all
         @beer = Beer.new
+        authorize @beer
     end
     
     def create
-        @beer = Beer.new(beer_params)
-        @beerbrewery = Brewery.find(params[:permission_form][:brewery_id])
+        @beer = Beer.new()
+        authorize @beer
+        @beerbrewery = Brewery.find(params.require(:beer).permit(:brewery).attributes.values)
         @beer.brewery = @beerbrewery
-        @beerstyle = Style.find(params[:permission_form][:style_id])
+        @beerstyle = Style.find(params.require(:beer).permit(:style))
         @beer.style= @beerstyle
         @beer.save
         redirect_to beer_path(@beer)
@@ -41,9 +43,10 @@ class BeersController < ApplicationController
 
     def set_beer
       @beer = Beer.find(params[:id])
+      authorize @beer
     end
   
     def beer_params
-      params.require(:beer).permit(:name, :rating, :price, :desc, :brewery, :style)
+      params.require(:beer).permit(:name, :rating, :price, :desc)
     end
 end
