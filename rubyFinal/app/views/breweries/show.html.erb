@@ -1,8 +1,7 @@
-
-<h1>id:<%= @brewery.id %></h1>
 <h1>Nom: <%= @brewery.name %></h1>
-<h1>Pays:<%= @brewery.country %></h1>
-
+<h3>id:<%= @brewery.id %></h3>
+<h3>Pays:<%= @brewery.country %></h3>
+<h3>Pays:<%= @brewery.address %></h3>
 
 <%= link_to "Supprimer #{@brewery.name}", brewery_path(@brewery), method: :delete %>
 

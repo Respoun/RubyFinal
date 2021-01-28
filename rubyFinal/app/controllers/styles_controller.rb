@@ -2,6 +2,7 @@ class StylesController < ApplicationController
   before_action :set_style, only: [:show, :destroy, :edit, :update]
 
     def new
+      @newstyle = Gemdub.nw("french") + " " +  Gemdub.style("french")
         @style = Style.new
         authorize @style
       end
@@ -25,6 +26,7 @@ class StylesController < ApplicationController
       end
 
       def edit
+        @edit = Gemdub.edit("french") + " "
       end
 
       def update

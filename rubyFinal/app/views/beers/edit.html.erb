@@ -1,4 +1,4 @@
-<h1>Edit <%= @beer.name%> Beer</h1>
+<h1><%= @edit  + @beer.name%></h1>
 
 <%= simple_form_for @beer do |b| %>
     <%= b.input :name %>

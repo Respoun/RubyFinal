@@ -6,6 +6,7 @@ class BeersController < ApplicationController
     end
 
     def new
+        @newbeer = Gemdub.nw("french") + " " +  Gemdub.beer("french")
         @breweries = Brewery.all
         @styles = Style.all
         @beer = Beer.new
@@ -29,6 +30,7 @@ class BeersController < ApplicationController
     end
 
     def edit
+      @edit = Gemdub.edit("french") + " "
       @breweries = Brewery.all
       @styles = Style.all
     end

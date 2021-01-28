@@ -12,6 +12,9 @@ gem 'devise'
 #pundit enables specific auth for user
 gem 'pundit'
 
+#ma gem qui me sert de translator
+gem 'gemdub'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use postgresql as the database for Active Record

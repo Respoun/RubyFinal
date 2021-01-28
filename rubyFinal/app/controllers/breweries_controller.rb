@@ -2,6 +2,7 @@ class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :destroy, :edit, :update]
 
     def new
+       @newbrewery = Gemdub.nw("french") + " " +  Gemdub.brewery("french")
         @brewery = Brewery.new
         authorize @brewery
       end
@@ -25,6 +26,7 @@ class BreweriesController < ApplicationController
       end
 
       def edit
+        @edit = Gemdub.edit("french") + " "
       end
 
       def update
